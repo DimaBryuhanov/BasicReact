@@ -1,5 +1,5 @@
 
-let name = "John"
+let name = "Mark";
 
 const styles = {
     title: {
@@ -7,8 +7,16 @@ const styles = {
     }
 }
 
+const WelcomeComponent = (props) => {
+    return (
+        <h1 className="title" style={styles.title}>Welcome {props.name}!</h1>
+    )
+}
+
 ReactDOM.render(
     
-<h1 className="title" style={styles.title}>Hello {name}!</h1>,
+    <WelcomeComponent 
+        name={name}
+    />,
     document.getElementById("root")
 );
