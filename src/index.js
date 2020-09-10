@@ -1,32 +1,50 @@
 
-let name = "Mark";
+let seas = ['Red', 'Mediterranean', 'Kineret', 'Dead']
 
 const styles = {
     root: {
-        margin: "15px",
-        fontFamily:"Times"
+        margin: "5px",
+        fontFamily: "Arial"
     },
-    title: {
-        color: "red"
+    h1:{
+        color: "#00c7ff"
+    },
+    card: {
+        display: "flex",
+        border: "1px solid lightgrey",
+        alignContent: "center",
+        justifyContent: "center"
     }
 }
 
-const WelcomeComponent = (props) => {
-    console.log(props);
+const Sea = (props) => {
     return (
         <div style={styles.root}>
-            <h1 className="title" style={styles.title}>Welcome, {props.name}!</h1>
-            <p>{props.message}</p>
+            <div style={styles.card}>
+                <h1 style={styles.h1}>{props.name}</h1>
+            </div>
         </div>
+    )
+}
 
+
+const App = () => {
+    return (
+        <div style={styles.root}>
+            {seas.map(sea => {
+                return (
+                    <Sea
+                        name={sea}
+                    />
+                )
+
+            })}
+        </div>
     )
 }
 
 ReactDOM.render(
 
-    <WelcomeComponent
-        name={name}
-        message={"Enjoy the course!"}
-    />,
+    <App />,
     document.getElementById("root")
 );
