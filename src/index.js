@@ -53,10 +53,10 @@ class App extends React.Component {
                 <button style={styles.button} onClick={this.logIn}>Log In</button>
                 <button style={styles.button} onClick={this.logOut}>Log Out</button>
                 <p>The User is {this.state.loggedIn ? "logged in" : "logged out"}</p>
-                {seas.map(sea => {
+                {seas.map( (sea, i) => {
                     return (
                         <Sea
-                            key={sea}
+                            key={i}
                             name={sea}
                         />
                     )})
@@ -69,6 +69,6 @@ class App extends React.Component {
 
 ReactDOM.render(
 
-    <App />,
+    <App seas={seas}/>,
     document.getElementById("root")
 );
