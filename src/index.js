@@ -6,7 +6,7 @@ const styles = {
         margin: "5px",
         fontFamily: "Arial"
     },
-    h1:{
+    h1: {
         color: "#00c7ff"
     },
     card: {
@@ -17,31 +17,41 @@ const styles = {
     }
 }
 
-const Sea = (props) => {
-    return (
-        <div style={styles.root}>
-            <div style={styles.card}>
-                <h1 style={styles.h1}>{props.name}</h1>
+class Sea extends React.Component {
+
+    constructor(props){
+        super (props);
+    }
+
+    render(){
+        return (
+            <div style={styles.root}>
+                <div style={styles.card}>
+                    <h1 style={styles.h1}>{this.props.name || "Sea"}</h1>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
 }
 
-
-const App = () => {
-    return (
-        <div style={styles.root}>
-            {seas.map(sea => {
-                return (
-                    <Sea
-                        name={sea}
-                    />
-                )
-
-            })}
-        </div>
-    )
+class App extends React.Component {
+    render() {
+        return (
+            <div style={styles.root}>
+                {seas.map(sea => {
+                    return (
+                        <Sea
+                            key={sea}
+                            name={sea}
+                        />
+                    )})
+                }
+            </div>
+        )
+    }
 }
+
 
 ReactDOM.render(
 
