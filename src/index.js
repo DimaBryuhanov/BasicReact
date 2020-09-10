@@ -1,13 +1,6 @@
 
 ReactDOM.render(
-    React.createElement(
-        "div",
-        null,
-        React.createElement(
-            "h1",
-            {"style":{"color":"red"}},
-            "Oh, Hello!"
-        )
-    ),
+    
+    <h1>Hello!</h1>,
     document.getElementById("root")
 );
