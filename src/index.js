@@ -14,6 +14,9 @@ const styles = {
         border: "1px solid lightgrey",
         alignContent: "center",
         justifyContent: "center"
+    },
+    button:{
+        margin: "5px"
     }
 }
 
@@ -36,9 +39,20 @@ class Sea extends React.Component {
 }
 
 class App extends React.Component {
+
+    state = {
+        loggedIn: false
+    }
+
+    logIn = () => this.setState({loggedIn:true});
+    logOut = () => this.setState({loggedIn:false});
+
     render() {
         return (
             <div style={styles.root}>
+                <button style={styles.button} onClick={this.logIn}>Log In</button>
+                <button style={styles.button} onClick={this.logOut}>Log Out</button>
+                <p>The User is {this.state.loggedIn ? "logged in" : "logged out"}</p>
                 {seas.map(sea => {
                     return (
                         <Sea
